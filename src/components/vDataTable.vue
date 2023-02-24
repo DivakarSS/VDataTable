@@ -1,39 +1,42 @@
-<style scoped> th {
+<style scoped>
+ th {
         color: white;
         background-color: #3b73b9;
         padding: 3px;
         vertical-align: middle;
     }
 </style>
-<template>    
-<div style="padding: 55px;">    
-<v-data-table
+<template>
+    <div style="padding: 55px;">
+    <v-data-table
       :headers="headers"
       :items="desserts"
       item-value="name"
       show-select
       class="elevation-1"
-    >      
-    <template v-slot:headers="props">        
-    <tr>            
-        <th>                
-            Props Data: {{props}} 
-        </th>            
-        <th v-for="header in headers" :key="header.key">                
-            {{ header.title }}
-         </th>        
-     </tr>      
-     </template>    
-  </v-data-table>
-  </div>
-  </template>
-  <script>
+    >
+      <template v-slot:headers="props">
+        <tr>
+            <th>
+                Props Data: {{props}} 
+            </th>
+            <th v-for="header in headers" :key="header.key">
+                {{ header.title }}
+            </th>
+        </tr>
+      </template>
+    </v-data-table>
+</div>
+</template>
+
+<script>
 import {createApp} from "vue";
 import 'vuetify/styles';
 import 'vuetify/dist/vuetify.js'
 import 'vuetify/components'
 import { createVuetify } from 'vuetify';
 import { VDataTable }from 'vuetify/labs/components'
+
 const vuetify = createVuetify({});
 const app = createApp({});
 app.use(vuetify);
@@ -41,28 +44,28 @@ app.use(vuetify);
     data: () => ({
       headers: [
     {
-        "key": "component",
-        "title": "Component",
+        "key": "name",
+        "title": "Name",
         "column_classes": "vue-tbl-column",
         "filter": true,
         "sortable": true
     },
     {
-        "key": "combustion",
-        "title": "Combustion",
+        "key": "dept",
+        "title": "Dept",
         "column_classes": "vue-tbl-column",
         "sortable": true
     },
     {
-        "key": "fuel_type",
-        "title": "Fuel Type",
+        "key": "age",
+        "title": "Age",
         "column_classes": "vue-tbl-column",
         "filter": "filterBasedOnText1",
         "sortable": true
     },
     {
-        "key": "work_scope",
-        "title": "Work Scope",
+        "key": "gender",
+        "title": "Gender",
         "column_classes": "vue-tbl-column",
         "sortable": true
     }
@@ -70,64 +73,65 @@ app.use(vuetify);
       desserts: [
     {
         "id": 1,
-        "component": "Unit Rotor",
-        "combustion": "STD",
-        "fuel_type": "Dual Fuel",
-        "work_scope": "Unmarry Rotor and Inspect not using"
+        "name": "Yashwanth",
+        "dept": "CX Practice",
+        "age": "25",
+        "gender": "Male"
     },
     {
         "id": 2,
-        "component": "Unit Rotor",
-        "combustion": "STD",
-        "fuel_type": "Dual Fuel",
-        "work_scope": "Inspection-Turbine/Compressor not using"
+        "name": "Diva",
+        "dept": "CX PRactice",
+        "age": "22",
+        "gender": "Male"
     },
     {
         "id": 716,
-        "component": "Turbine Case",
-        "combustion": "DLN-1",
-        "fuel_type": "Dual Fuel",
-        "work_scope": "Non-Standard"
+        "name": "Ranga",
+        "dept": "CX Practice",
+        "age": "22",
+        "gender": "Male"
     },
     {
         "id": 717,
-        "component": "Turbine Case",
-        "combustion": "DLN-1",
-        "fuel_type": "Gas Only",
-        "work_scope": "Non-Standard"
+        "name": "Vignesh",
+        "dept": "CX Practice",
+        "age": "23",
+        "gender": "Male"
     },
     {
         "id": 718,
-        "component": "Turbine Case",
-        "combustion": "DLN-1",
-        "fuel_type": "Liquid Only",
-        "work_scope": "Non-Standard"
+        "name": "Gokul",
+        "dept": "CX Practice",
+        "age": "23",
+        "gender": "Male"
     },
     {
         "id": 719,
-        "component": "Unit Rotor",
-        "combustion": "STD",
-        "fuel_type": "Dual Fuel",
-        "work_scope": "Non-Standard"
+        "name": "Sidd",
+        "dept": "CPQ",
+        "age": "22",
+        "gender": "Male"
     },
     {
         "id": 720,
-        "component": "Compressor Rotor",
-        "combustion": "STD",
-        "fuel_type": "Dual Fuel",
-        "work_scope": "Non-Standard"
+        "name": "Ramu",
+        "dept": "Logistic",
+        "age": "29",
+        "gender": "Male"
     },
     {
         "id": 721,
-        "component": "Turbine Rotor",
-        "combustion": "STD",
-        "fuel_type": "Dual Fuel",
-        "work_scope": "Non-Standard"
+        "name": "Krish",
+        "dept": "HR",
+        "age": "24",
+        "gender": "Male"
     }
 ],
     }),
     components: {
          VDataTable
+        
     },
     defaults: {
     VDataTable: {
