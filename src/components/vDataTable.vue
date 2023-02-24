@@ -1,43 +1,39 @@
-<template>
-    <div style="padding: 55px;">
-    <v-data-table
+<style scoped> th {
+        color: white;
+        background-color: #3b73b9;
+        padding: 3px;
+        vertical-align: middle;
+    }
+</style>
+<template>    
+<div style="padding: 55px;">    
+<v-data-table
       :headers="headers"
       :items="desserts"
       item-value="name"
       show-select
       class="elevation-1"
-    >
-      <template v-slot:[`column.id`]="{ column }">
-        <tr>
-            <th>
-                <v-icon icon="mdi-filter-variant"></v-icon>
-            </th>
-            <th>
-                {{ column }}
-            </th>
-            <th>
-                {{ column }}
-            </th>
-            <th>
-                {{ column }}
-            </th>
-            <th>
-                {{ column }}
-            </th>
-        </tr>
-      </template>
-    </v-data-table>
-</div>
-</template>
-
-<script>
+    >      
+    <template v-slot:headers="props">        
+    <tr>            
+        <th>                
+            Props Data: {{props}} 
+        </th>            
+        <th v-for="header in headers" :key="header.key">                
+            {{ header.title }}
+         </th>        
+     </tr>      
+     </template>    
+  </v-data-table>
+  </div>
+  </template>
+  <script>
 import {createApp} from "vue";
 import 'vuetify/styles';
 import 'vuetify/dist/vuetify.js'
 import 'vuetify/components'
 import { createVuetify } from 'vuetify';
 import { VDataTable }from 'vuetify/labs/components'
-
 const vuetify = createVuetify({});
 const app = createApp({});
 app.use(vuetify);
@@ -132,7 +128,6 @@ app.use(vuetify);
     }),
     components: {
          VDataTable
-        
     },
     defaults: {
     VDataTable: {
